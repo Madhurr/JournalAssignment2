@@ -52,6 +52,9 @@ class EntryViewController: UIViewController , UITextFieldDelegate , UINavigation
         
         // Delegates
         
+        TitleLabel.delegate = self
+        descriptionTextField.delegate = self as? UITextViewDelegate
+        
         
     }
     
@@ -60,6 +63,22 @@ class EntryViewController: UIViewController , UITextFieldDelegate , UINavigation
     @IBOutlet weak var deleteButtonTap: UIBarButtonItem!
   
     @IBAction func backButtonTapped(_ sender: Any) {
+    }
+    
+    
+    // MARK: Core Date Setup
+    
+    func saveToCoreData(completion: @escaping () -> Void){
+        managedObject?.perform {
+            do {
+                try self.managedObject?.save()
+                completion()
+                print("Your Data Saved in Core Data")
+            }
+            catch let error {
+                print("Could not save data inside Core Data \(error.localizedDescription)")
+            }
+        }
     }
     
 }

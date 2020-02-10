@@ -63,13 +63,10 @@ class noteTableViewCell: UITableViewCell {
         self.titleLabel.text = note.noteTitle?.uppercased()
         self.DescriptionLabel.text = note.noteDescription
        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        let dateString = formatter.string(from: Date())
-        let cellDateString = formatter.date(from: dateString)
-        formatter.dateFormat = "dd-MM-yyyy"
-        let myDateString = formatter.string(from: cellDateString!)
-//        self.datePickerButton.titleLabel?.transform =  self.datePickerButton.titleLabel?.transform.rotated(by: CGFloat(M_PI_2)) ?? ""
-//        self.datePickerButton.titleLabel?.text = myDateString
+       if let date = note.noteDate{
+           let myDateString = formatter.string(from: date)
+        self.datePickerTextField.text = myDateString
+       }
     }
 }
 extension UILabel {

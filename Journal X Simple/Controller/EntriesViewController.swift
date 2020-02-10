@@ -42,11 +42,11 @@ class EntriesViewController: UITableViewController {
     }
    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NotesTableViewCell" , for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NotesTableViewCell" , for: indexPath) as! noteTableViewCell
         // Configure The Cell
         
         let note : Note = notes[indexPath.row]
-        //cell.configureCell(note: note)
+        cell.configureCell(note: note)
         return cell
     }
     
