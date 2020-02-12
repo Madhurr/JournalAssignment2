@@ -59,10 +59,97 @@ class EntryViewController: UIViewController , UITextFieldDelegate , UINavigation
     }
     
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        if let firstVC = presentingViewController as? EntriesViewController {
+            DispatchQueue.main.async {
+                firstVC.tableView.reloadData()
+                
+            }
+        }
+    }
+    
     
     @IBOutlet weak var deleteButtonTap: UIBarButtonItem!
   
     @IBAction func backButtonTapped(_ sender: Any) {
+        if TitleLabel.text == "" || descriptionTextField.text == "    Start Writing Your Entry  Here"{
+            
+            let isPresentingInAddNoteMode = presentingViewController is UINavigationController
+            if isPresentingInAddNoteMode{
+                dismiss(animated: true, completion: nil)
+            }else{
+                navigationController!.popViewController(animated: true)
+            }
+        }else {
+            if(isExisting == false){
+                let noteTitle = TitleLabel.text
+                let noteDescription = descriptionTextField.text
+                
+                if let moc = managedObject{
+                    let note = Note(context: moc)
+                    note.noteTitle = noteTitle
+                    note.noteDescription = noteDescription
+                    
+                    saveToCoreData {
+                        let isPresentingInAddNoteMode = self.presentingViewController is UINavigationController
+                        
+                        if isPresentingInAddNoteMode{
+                            self.dismiss(animated: true, completion: nil)
+                            
+                        }else{
+                            self.navigationController?.popViewController(animated: true)
+                        }
+                    }
+                }
+            }
+            else if (isExisting == true){
+                let note = self.note
+                let managedObject = note
+                managedObject?.setValue(TitleLabel.text, forKey: "noteTitle")
+                managedObject?.setValue(descriptionTextField.text, forKey: "noteDescription")
+                managedObject?.setValue(navigationItem.title, forKey: "noteDateStr")
+                do {
+                    try context.save()
+                    
+                    let isPresentingInAddNoteMode = self.presentingViewController is UINavigationController
+                        
+                    if isPresentingInAddNoteMode {
+                        self.dismiss(animated: true, completion: nil)
+                    }else{
+                        self.navigationController!.popViewController(animated: true)
+                    }
+                }
+                
+                catch{
+                    print("Failed to Update existing note.")
+                }
+                
+            }
+        }
+    }
+    
+    
+    // MARK: TextFiled Properties
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
+    }
+    
+    func textView(_ textView: UITextView , shouldChangeTextIn range: NSRange, replcaementText text: String) -> Bool{
+        if(text == "\n"){
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+    
+    private func textViewDidBeginEditing(_ textView: UITextView){
+        if(textView.text == "Note Description..."){
+            textView.text = ""
+        }
     }
     
     

@@ -12,8 +12,8 @@ class EntriesViewController: UITableViewController {
     
     
     var notes = [Note]()
-    
-    var mangedObjectContext: NSManagedObjectContext? {
+    var dateStr = ""
+    var managedObjectContext: NSManagedObjectContext? {
         return (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     }
     
@@ -21,18 +21,20 @@ class EntriesViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-    
-        
+        retriveNotes()
+        tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+        super.viewWillAppear(animated)
+        tableView.reloadData()
         return retriveNotes()
     }
     
     
+    @IBAction func addNoteTapped(_ sender: Any) {
+    
+    }
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -50,6 +52,11 @@ class EntriesViewController: UITableViewController {
         return cell
     }
     
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCell.EditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            self.tableView.deleteRows(at: [(indexPath as IndexPath)], with: UITableView.RowAnimation.automatic)
+       }
+    }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -62,9 +69,34 @@ class EntriesViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+          let delete = UITableViewRowAction(style: .destructive, title: "                    ") { (action, indexPath) in
+              
+              let note = self.notes[indexPath.row]
+              context.delete(note)
+              
+              (UIApplication.shared.delegate as! AppDelegate).saveContext()
+              do {
+                  self.notes = try context.fetch(Note.fetchRequest())
+              }
+                  
+              catch {
+                  print("Failed to delete note.")
+              }
+              
+              tableView.deleteRows(at: [indexPath], with: .fade)
+              tableView.reloadData()
+
+          }
+          
+//          delete.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "trashIcon"))
+          
+          return [delete]
+
+      }
     
     func retriveNotes(){
-        mangedObjectContext?.perform {
+        managedObjectContext?.perform {
             self.fetchNotesFromCoreData { (notes) in
                 if let notes = notes{
                     self.notes = notes
@@ -75,18 +107,42 @@ class EntriesViewController: UITableViewController {
     }
     
     func fetchNotesFromCoreData(completion: @escaping ([Note]?) -> Void){
-        mangedObjectContext?.perform {
+      managedObjectContext?.perform {
             var notes = [Note]()
             let request: NSFetchRequest<Note> = Note.fetchRequest()
             
             do{
-                notes = try self.mangedObjectContext!.fetch(request)
+                notes = try self.managedObjectContext!.fetch(request)
                 completion(notes)
             }
             catch{
                 print("Could Not Fetch Notes From Core Data: \(error.localizedDescription)")
             }
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetails" {
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                
+                let noteDetailsViewController = segue.destination as! EntryViewController
+                let selectedNote: Note = notes[indexPath.row]
+                
+                noteDetailsViewController.indexPath = indexPath.row
+                //noteDetailsViewController.isExisting = false
+                noteDetailsViewController.note = selectedNote
+                self.tableView.reloadData()
+                
+            }
+            
+        }
+            
+        else if segue.identifier == "addItem" {
+            print("User added a new note.")
+            self.tableView.reloadData()
+
+        }
+
     }
 }
 

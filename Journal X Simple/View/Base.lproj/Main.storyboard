@@ -21,40 +21,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NotesTableViewCell" rowHeight="124" id="wzO-1F-bRj" customClass="noteTableViewCell" customModule="Journal_X" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="124"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NotesTableViewCell" rowHeight="155" id="wzO-1F-bRj" customClass="noteTableViewCell" customModule="Journal_X" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="155"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wzO-1F-bRj" id="K52-rP-0NE">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="124"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="155"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7A7-lF-TO9">
-                                            <rect key="frame" x="1" y="1" width="412" height="122"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="155"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IXk-7N-dZA">
-                                                    <rect key="frame" x="31" y="8" width="373" height="26"/>
-                                                    <fontDescription key="fontDescription" name="ABeeZee-Regular" family="ABeeZee" pointSize="22"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IXk-7N-dZA">
+                                                    <rect key="frame" x="40" y="8" width="366" height="30"/>
+                                                    <fontDescription key="fontDescription" name="ABeeZee-Regular" family="ABeeZee" pointSize="25"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entry Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="reg-Vc-MYS">
-                                                    <rect key="frame" x="31" y="42" width="373" height="73"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="73" id="LaQ-Vu-Pxq"/>
-                                                        <constraint firstAttribute="width" constant="373" id="i1K-AM-LLX"/>
-                                                        <constraint firstAttribute="width" secondItem="reg-Vc-MYS" secondAttribute="height" multiplier="373:73" id="i6p-97-kt8"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="ABeeZee-Regular" family="ABeeZee" pointSize="19"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DmA-m2-lF5">
-                                                    <rect key="frame" x="0.0" y="113" width="412" height="8"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DmA-m2-lF5">
+                                                    <rect key="frame" x="0.0" y="146" width="414" height="8"/>
                                                     <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="8" id="dWs-Gw-qK6"/>
+                                                    </constraints>
                                                 </view>
                                                 <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="24 Dec" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="efz-LB-pSL" customClass="DesignableTextField" customModule="Journal_X" customModuleProvider="target">
-                                                    <rect key="frame" x="-41" y="42" width="112" height="30"/>
+                                                    <rect key="frame" x="-70" y="53" width="163" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="textColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -66,21 +57,33 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Entry Text" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="reg-Vc-MYS">
+                                                    <rect key="frame" x="40" y="66" width="366" height="22.5"/>
+                                                    <fontDescription key="fontDescription" name="ABeeZee-Regular" family="ABeeZee" pointSize="19"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             <constraints>
-                                                <constraint firstItem="reg-Vc-MYS" firstAttribute="top" secondItem="IXk-7N-dZA" secondAttribute="bottom" constant="8" id="2xW-bv-Y84"/>
-                                                <constraint firstAttribute="trailing" secondItem="IXk-7N-dZA" secondAttribute="trailing" constant="8" id="AVc-Am-EUB"/>
-                                                <constraint firstAttribute="trailing" secondItem="reg-Vc-MYS" secondAttribute="trailing" constant="8" id="gvq-se-wGs"/>
-                                                <constraint firstItem="IXk-7N-dZA" firstAttribute="top" secondItem="7A7-lF-TO9" secondAttribute="top" constant="8" id="hM6-9M-RAC"/>
+                                                <constraint firstItem="reg-Vc-MYS" firstAttribute="top" secondItem="IXk-7N-dZA" secondAttribute="bottom" constant="4" id="5E2-Gz-FOd"/>
+                                                <constraint firstAttribute="trailing" secondItem="IXk-7N-dZA" secondAttribute="trailing" constant="8" id="BGS-9l-IqL"/>
+                                                <constraint firstAttribute="trailing" secondItem="DmA-m2-lF5" secondAttribute="trailing" id="IsE-AA-nno"/>
+                                                <constraint firstItem="reg-Vc-MYS" firstAttribute="leading" secondItem="IXk-7N-dZA" secondAttribute="leading" id="MdE-Ub-i5L"/>
+                                                <constraint firstItem="DmA-m2-lF5" firstAttribute="top" relation="greaterThanOrEqual" secondItem="reg-Vc-MYS" secondAttribute="bottom" constant="62" id="aao-hU-xBT"/>
+                                                <constraint firstItem="reg-Vc-MYS" firstAttribute="trailing" secondItem="IXk-7N-dZA" secondAttribute="trailing" id="h3z-kZ-Dex"/>
+                                                <constraint firstItem="DmA-m2-lF5" firstAttribute="leading" secondItem="7A7-lF-TO9" secondAttribute="leading" id="k7p-pn-7B9"/>
+                                                <constraint firstAttribute="bottom" secondItem="DmA-m2-lF5" secondAttribute="bottom" constant="1" id="rny-w3-V7Z"/>
+                                                <constraint firstItem="IXk-7N-dZA" firstAttribute="top" secondItem="7A7-lF-TO9" secondAttribute="top" constant="8" id="sbB-ae-hPV"/>
+                                                <constraint firstItem="IXk-7N-dZA" firstAttribute="leading" secondItem="7A7-lF-TO9" secondAttribute="leading" constant="40" id="wKB-Zd-OIu"/>
                                             </constraints>
                                         </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="7A7-lF-TO9" firstAttribute="top" secondItem="K52-rP-0NE" secondAttribute="top" constant="1" id="Pwn-P3-rZG"/>
-                                        <constraint firstAttribute="trailing" secondItem="7A7-lF-TO9" secondAttribute="trailing" constant="1" id="dCf-oq-ggI"/>
-                                        <constraint firstItem="7A7-lF-TO9" firstAttribute="leading" secondItem="K52-rP-0NE" secondAttribute="leading" constant="1" id="gXb-k0-WQi"/>
-                                        <constraint firstAttribute="bottom" secondItem="7A7-lF-TO9" secondAttribute="bottom" constant="1" id="xOp-BZ-ssZ"/>
+                                        <constraint firstAttribute="bottom" secondItem="7A7-lF-TO9" secondAttribute="bottom" id="9zo-nA-sJw"/>
+                                        <constraint firstAttribute="trailing" secondItem="7A7-lF-TO9" secondAttribute="trailing" id="IzI-we-n5y"/>
+                                        <constraint firstItem="7A7-lF-TO9" firstAttribute="leading" secondItem="K52-rP-0NE" secondAttribute="leading" id="Nwx-lM-Zj2"/>
+                                        <constraint firstItem="7A7-lF-TO9" firstAttribute="top" secondItem="K52-rP-0NE" secondAttribute="top" id="QJQ-YR-kCy"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -88,7 +91,7 @@
                                     <outlet property="cellDivisorView" destination="DmA-m2-lF5" id="dkw-cx-6Ia"/>
                                     <outlet property="datePickerTextField" destination="efz-LB-pSL" id="P9q-kU-ato"/>
                                     <outlet property="titleLabel" destination="IXk-7N-dZA" id="fgx-pM-yo9"/>
-                                    <segue destination="oJL-eJ-atl" kind="show" id="r66-Gq-KuH"/>
+                                    <segue destination="oJL-eJ-atl" kind="show" identifier="showDetails" id="r66-Gq-KuH"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -100,7 +103,8 @@
                     <navigationItem key="navigationItem" title="Journal X" id="WkJ-4Y-7g8">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="pFO-zu-nOV">
                             <connections>
-                                <segue destination="gql-nN-yyq" kind="presentation" identifier="addItem" id="1Xj-48-wOC"/>
+                                <action selector="addNoteTapped:" destination="Ch8-Pg-Mnv" id="hNx-zx-9KW"/>
+                                <segue destination="oJL-eJ-atl" kind="show" id="3Bq-eh-cdI"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -120,16 +124,16 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JSf-Gu-d9P">
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="    Type headline here" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zVc-Yg-y7j">
-                                        <rect key="frame" x="8" y="8" width="398" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type headline here" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zVc-Yg-y7j">
+                                        <rect key="frame" x="8" y="8" width="398" height="48"/>
+                                        <fontDescription key="fontDescription" name="ABeeZee-Regular" family="ABeeZee" pointSize="40"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="    Start Writing Your Entry  Here" translatesAutoresizingMaskIntoConstraints="NO" id="qZc-Jo-hri">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Start Writing Your Entry  Here" translatesAutoresizingMaskIntoConstraints="NO" id="qZc-Jo-hri">
                                         <rect key="frame" x="8" y="37" width="398" height="771"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="ABeeZee-Regular" family="ABeeZee" pointSize="25"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
@@ -156,7 +160,11 @@
                         <viewLayoutGuide key="safeArea" id="fHC-ue-0Rt"/>
                     </view>
                     <navigationItem key="navigationItem" title="24 Jan 2019" id="NrU-ef-FZ2">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="doQ-AE-hXv"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="doQ-AE-hXv">
+                            <connections>
+                                <action selector="backButtonTapped:" destination="oJL-eJ-atl" id="V0b-gH-rkl"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="eYH-5C-28R"/>
                     </navigationItem>
                     <connections>
@@ -194,7 +202,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="asm-QP-gbp"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JPB-Hs-B9n">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -208,6 +216,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="r66-Gq-KuH"/>
+        <segue reference="3Bq-eh-cdI"/>
     </inferredMetricsTieBreakers>
 </document>
